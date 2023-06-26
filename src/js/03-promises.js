@@ -24,7 +24,6 @@ function heandlePromiseCreate(e) {
   let valueAmount = Number(amount.value);
 
   for (let i = 1; i <= valueAmount; i += 1) {
-    valueDelay += valueStep;
     createPromise(i, valueDelay)
       .then(({ position, delay }) => {
         Notiflix.Notify.success(
@@ -36,6 +35,7 @@ function heandlePromiseCreate(e) {
           `❌ Rejected promise ${position} in ${delay}ms`
         );
       });
+    valueDelay += valueStep;
     e.currentTarget.reset();
   }
 }
